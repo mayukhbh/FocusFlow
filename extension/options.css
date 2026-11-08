@@ -1,0 +1,71 @@
+:root { --bg: #ededea; --card: #f7f7f4; --ink: #1c1c1c; --mid: #6b6b66; --line: #d6d6d0; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.opt { max-width: 620px; margin: 0 auto; padding: 48px 24px 72px; }
+h1 { margin: 0; font-size: 30px; letter-spacing: -0.02em; }
+.opt-lede { margin: 6px 0 32px; color: var(--mid); }
+h2 { font-size: 15px; margin: 28px 0 10px; }
+.opt-list { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+.opt-list li + li { border-top: 1px solid var(--line); }
+.opt-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 14px 16px; cursor: pointer; }
+.opt-check { background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+.opt-label { display: block; font-weight: 600; }
+.opt-help { display: block; color: var(--mid); font-size: 14px; }
+
+/* Checkbox styled as a small rocker, matching the popup */
+input[type='checkbox'] {
+  appearance: none;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 26px;
+  border-radius: 9px;
+  background: var(--line);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+  margin: 0;
+}
+input[type='checkbox']::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 160ms ease;
+}
+input[type='checkbox']:checked { background: var(--ink); }
+input[type='checkbox']:checked::after { transform: translateX(20px); }
+input:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.opt-hours { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; padding: 16px 4px 0; }
+.opt-hours[hidden] { display: none; }
+.opt-hours input[type='time'] { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); }
+.opt-days { border: 0; padding: 0; margin: 0; display: flex; align-items: center; gap: 10px; }
+.opt-days legend { float: left; margin-right: 10px; padding: 0; }
+.opt-days div { display: flex; gap: 4px; }
+.opt-days button {
+  width: 38px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.opt-days button[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 600; }
+.opt-saved { min-height: 22px; margin-top: 20px; color: var(--mid); font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { input[type='checkbox'], input[type='checkbox']::after { transition: none; } }

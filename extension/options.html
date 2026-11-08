@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Focus Mode settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="opt">
+    <h1>Focus Mode settings</h1>
+    <p class="opt-lede">Choose what disappears from YouTube while Focus Mode is on, and when it turns on by itself.</p>
+
+    <section aria-labelledby="hideTitle">
+      <h2 id="hideTitle">Hide while focusing</h2>
+      <ul class="opt-list" id="hideList"></ul>
+    </section>
+
+    <section aria-labelledby="hoursTitle">
+      <h2 id="hoursTitle">Focus hours</h2>
+      <label class="opt-row opt-check">
+        <span>
+          <span class="opt-label">Turn on automatically</span>
+          <span class="opt-help">Focus Mode switches itself on during these hours and off after.</span>
+        </span>
+        <input type="checkbox" id="hoursOn" role="switch">
+      </label>
+      <div class="opt-hours" id="hoursBox">
+        <label>From <input type="time" id="hoursStart" value="09:00"></label>
+        <label>to <input type="time" id="hoursEnd" value="17:00"></label>
+        <fieldset class="opt-days">
+          <legend>On</legend>
+          <div id="days"></div>
+        </fieldset>
+      </div>
+    </section>
+
+    <p class="opt-saved" id="saved" role="status" aria-live="polite"></p>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

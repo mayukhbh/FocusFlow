@@ -1,0 +1,76 @@
+/* Intent screen. Uses YouTube's own type and light or dark colors so it feels native. */
+
+#fm-intent {
+  --fm-bg: #ffffff;
+  --fm-text: #0f0f0f;
+  --fm-muted: #606060;
+  --fm-line: #d3d3d3;
+  --fm-btn: #0f0f0f;
+  --fm-btn-text: #ffffff;
+  position: fixed;
+  inset: 56px 0 0 0;
+  z-index: 2020;
+  background: var(--fm-bg);
+  color: var(--fm-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: Roboto, Arial, sans-serif;
+}
+html[dark] #fm-intent {
+  --fm-bg: #0f0f0f;
+  --fm-text: #f1f1f1;
+  --fm-muted: #aaaaaa;
+  --fm-line: #3f3f3f;
+  --fm-btn: #f1f1f1;
+  --fm-btn-text: #0f0f0f;
+}
+html.fm-intent-on, html.fm-intent-on body { overflow: hidden !important; }
+
+#fm-intent .fm-inner { width: 100%; max-width: 680px; margin-top: -8vh; }
+#fm-intent .fm-kicker { margin: 0 0 10px; font-size: 14px; color: var(--fm-muted); }
+#fm-intent .fm-q { margin: 0 0 28px; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
+#fm-intent .fm-form { display: flex; gap: 10px; }
+#fm-intent input {
+  flex: 1;
+  min-width: 0;
+  height: 56px;
+  padding: 0 22px;
+  border-radius: 28px;
+  border: 1.5px solid var(--fm-line);
+  background: transparent;
+  color: var(--fm-text);
+  font: 400 18px Roboto, Arial, sans-serif;
+  outline: none;
+}
+#fm-intent input:focus { border-color: var(--fm-text); }
+#fm-intent input::placeholder { color: var(--fm-muted); }
+#fm-intent .fm-form button {
+  height: 56px;
+  padding: 0 26px;
+  border-radius: 28px;
+  border: 0;
+  background: var(--fm-btn);
+  color: var(--fm-btn-text);
+  font: 500 16px Roboto, Arial, sans-serif;
+  cursor: pointer;
+}
+#fm-intent .fm-browse {
+  margin-top: 22px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--fm-muted);
+  font: 400 14px Roboto, Arial, sans-serif;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+#fm-intent .fm-browse:hover { color: var(--fm-text); }
+#fm-intent :focus-visible { outline: 2px solid var(--fm-text); outline-offset: 3px; }
+#fm-intent .fm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+@media (max-width: 560px) {
+  #fm-intent .fm-form { flex-direction: column; }
+}
