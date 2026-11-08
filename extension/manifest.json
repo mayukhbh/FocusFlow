@@ -17,13 +17,27 @@
         "*://*.youtube.com/*",
         "*://*.reddit.com/*"
       ],
-      "js": ["content.js"],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "intent.js"
+      ],
+      "css": [
+        "intent.css"
+      ],
+      "run_at": "document_idle"
     }
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Focus Mode - Toggle Research Mode"
+    "default_title": "Focus Mode"
   },
   "background": {
     "service_worker": "background.js"
@@ -32,5 +46,6 @@
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  }
+  },
+  "options_page": "options.html"
 }

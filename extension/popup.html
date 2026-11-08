@@ -2,42 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Focus Mode</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Focus Mode</h1>
-      <p class="subtitle">Block distractions on YouTube </p>
-    </div>
-    
-    <div class="toggle-section">
-      <div class="toggle-wrapper">
-        <label class="switch">
-          <input type="checkbox" id="researchModeToggle">
-          <span class="slider round"></span>
-        </label>
-        <div class="toggle-info">
-          <span class="toggle-label" id="toggleLabel">Research Mode OFF</span>
-          <span class="toggle-description" id="toggleDescription">Distracting elements are visible</span>
-        </div>
+  <main class="pop" id="pop" data-on="false">
+    <header class="pop-head">
+      <span class="pop-name">Focus Mode</span>
+      <a class="pop-settings" href="options.html" target="_blank" id="settingsLink">Settings</a>
+    </header>
+
+    <button type="button" class="switch" id="switch" role="switch" aria-checked="false" aria-describedby="stateText">
+      <span class="switch-track" aria-hidden="true">
+        <span class="switch-thumb"></span>
+      </span>
+      <span class="sr" id="switchLabel">Focus Mode</span>
+    </button>
+
+    <p class="pop-state" id="stateTitle">Focus is off</p>
+    <p class="pop-desc" id="stateText">YouTube looks the way it normally does.</p>
+
+    <dl class="pop-facts">
+      <div>
+        <dt>Focused today</dt>
+        <dd id="focusedToday">None yet</dd>
       </div>
-    </div>
-    
-    <div class="status-section">
-      <div class="current-site" id="currentSite">
-        <span class="site-icon">🌐</span>
-        <span id="siteStatus">Unknown site</span>
+      <div>
+        <dt>This tab</dt>
+        <dd id="tabStatus">Checking</dd>
       </div>
-    </div>
-    
-    <div class="footer">
-      <small>Stay focused, stay productive</small>
-    </div>
-  </div>
-  
+    </dl>
+  </main>
   <script src="popup.js"></script>
 </body>
 </html>
